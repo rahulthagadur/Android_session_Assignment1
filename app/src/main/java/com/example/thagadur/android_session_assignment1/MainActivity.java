@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-        //read data from file
+        //read data from file and display it on the displayTextView
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);

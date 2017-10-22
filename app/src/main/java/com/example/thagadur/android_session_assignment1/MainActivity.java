@@ -99,21 +99,21 @@ public class MainActivity extends AppCompatActivity{
         //updated the data received from the textView to the file by using necessary file operations
         @Override
         protected String doInBackground(String... str) {
-            String enter = "\n";
-            FileWriter writer = null;
+            String newLine = "\n";
+            FileWriter fileWriter = null;
             try {
-                writer = new FileWriter(file, true);
-                writer.append(str[0].toString());
-                writer.append(enter);
-                writer.flush();
+                fileWriter = new FileWriter(file, true);
+                fileWriter.append(str[0].toString());
+                fileWriter.append(newLine);
+                fileWriter.flush();
 
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             } finally {
                 try {
-                    if (writer!=null)
-                    writer.close();
+                    if (fileWriter!=null)
+                    fileWriter.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -129,18 +129,18 @@ public class MainActivity extends AppCompatActivity{
             super.onPostExecute(s);
             String name = "";
             StringBuilder sb = new StringBuilder();
-            FileReader fr = null;
+            FileReader fileReader = null;
 
             try {
-                fr = new FileReader(file);
-                BufferedReader br = new BufferedReader(fr);
+                fileReader = new FileReader(file);
+                BufferedReader br = new BufferedReader(fileReader);
                 while ((name = br.readLine()) != null) {
                     sb.append(name);
                     sb.append("\n");
 
                 }
                 br.close();
-                fr.close();
+                fileReader.close();
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

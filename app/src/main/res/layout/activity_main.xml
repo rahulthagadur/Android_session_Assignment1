@@ -6,49 +6,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.thagadur.android_session_assignment1.MainActivity">
+    <!-- EditText for accepting the text to be stored in the file-->
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <EditText
-            android:id="@+id/inputText"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Input the text here to save it"
-            android:inputType="textShortMessage" >
-
-        </EditText>
-
-        <Button
-            android:id="@+id/okay_file"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Click to Save the Text " >
-        </Button>
-    </LinearLayout>
-
+        android:layout_marginTop="10dp"
+        android:hint="Input the text here to save it"
+        android:inputType="textShortMessage"></EditText>
+    <!--On click of this Button the data are stored in the file -->
+    <Button
+        android:id="@+id/okay_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Click to Save the Text "></Button>
+    <!-- Just text for displaying information to user saying "Content from the file " -->
     <TextView
         android:id="@+id/textView1"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:text="Content from the file " >
-    </TextView>
+        android:layout_marginTop="20dp"
+        android:text="Content from the file "
+        android:textAppearance="?android:textAppearanceMedium"></TextView>
 
+    <!--File Data are displayed in this TextView-->
     <TextView
         android:id="@+id/display_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" >
-    </TextView>
+        android:text=""></TextView>
 
+    <!--On click of this Button the file is deleted from the memory-->
     <Button
         android:id="@+id/delete_file"
         android:layout_width="match_parent"

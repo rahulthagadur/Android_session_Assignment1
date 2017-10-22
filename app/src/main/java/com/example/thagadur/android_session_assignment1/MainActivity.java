@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,7 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     TextView displayData;
     EditText inputText;
@@ -50,10 +51,10 @@ public class MainActivity extends AppCompatActivity{
         okay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String getText=  inputText.getText().toString();
+                String getText = inputText.getText().toString();
                 inputText.setText("");
                 //call Asyc Task of to store data in to the file
-                ReadDataFromFile readDataFromFile= new ReadDataFromFile(file);
+                ReadDataFromFile readDataFromFile = new ReadDataFromFile(file);
                 readDataFromFile.execute(getText);
 
             }
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity{
 
         public ReadDataFromFile(File file) {
             super();
-            this.file= file;
+            this.file = file;
             // TODO Auto-generated constructor stub
         }
 
@@ -112,8 +113,8 @@ public class MainActivity extends AppCompatActivity{
                 e.printStackTrace();
             } finally {
                 try {
-                    if (fileWriter!=null)
-                    fileWriter.close();
+                    if (fileWriter != null)
+                        fileWriter.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -19,8 +19,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
-    TextView inputData;
-    EditText text;
+    TextView displayData;
+    EditText inputText;
     Button okay, delete;
     static String FILENAME = "testfile.txt";
     File file;
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity{
         okay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String getText=  text.getText().toString();
-                text.setText("");
+                String getText=  inputText.getText().toString();
+                inputText.setText("");
                 //call Asyc Task of to store data in to the file
                 ReadDataFromFile readDataFromFile= new ReadDataFromFile(file);
                 readDataFromFile.execute(getText);
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 file.delete();
+                displayData.setText("");
 
             }
         });
@@ -72,8 +73,8 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void initialiseID() {
-        inputData = (TextView) findViewById(R.id.display_text);
-        text = (EditText) findViewById(R.id.inputText);
+        displayData = (TextView) findViewById(R.id.display_text);
+        inputText = (EditText) findViewById(R.id.inputText);
         okay = (Button) findViewById(R.id.okay_file);
         delete = (Button) findViewById(R.id.delete_file);
     }
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity{
      */
     private class ReadDataFromFile extends AsyncTask<String, Integer, String> {
 
-        // static String FILENAME = "test.txt";
+        // static String FILENAME = "testfile.txt";
         File file;
 
         public ReadDataFromFile(File file) {
@@ -111,9 +112,9 @@ public class MainActivity extends AppCompatActivity{
                 e.printStackTrace();
             } finally {
                 try {
+                    if (writer!=null)
                     writer.close();
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -147,7 +148,7 @@ public class MainActivity extends AppCompatActivity{
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            inputData.setText(sb.toString());
+            displayData.setText(sb.toString());
         }
 
     }

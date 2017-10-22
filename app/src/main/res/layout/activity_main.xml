@@ -1,18 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.thagadur.android_session_assignment1.MainActivity">
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/inputText"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Input the text here to save it"
+            android:inputType="textShortMessage" >
+
+        </EditText>
+
+        <Button
+            android:id="@+id/okay_file"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click to Save the Text " >
+        </Button>
+    </LinearLayout>
+
     <TextView
+        android:id="@+id/textView1"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Content from the file " >
+    </TextView>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/display_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" >
+    </TextView>
+
+    <Button
+        android:id="@+id/delete_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete the File Created " />
+
+</LinearLayout>
